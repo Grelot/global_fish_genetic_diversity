@@ -1,0 +1,27 @@
+# exclude everything
+02-raw_data/*tsv
+02-raw_data/*txt
+03-filtered_data/*
+04-species_seq/*
+05-species_alnt/*
+06-species_alnt_cluster/*
+07-master_matrices/*
+08-genetic_diversity/*
+10-figures/*pdf
+10-figures/*
+brouillon/
+
+# exception to the rule
+!somefolder/.gitkeep 
+!02-raw_data/.gitkeep
+!02-raw_data/seqbold_data.tsv
+!03-filtered_data/co1_ssll_seqbold_data.tsv
+!03-filtered_data/.gitkeep
+!04-species_seq/.gitkeep
+!05-species_alnt/.gitkeep
+!06-species_alnt_cluster/.gitkeep
+!07-master_matrices/.gitkeep
+!08-genetic_diversity/.gitkeep
+!10-figures/.gitkeep
+!08-genetic_diversity/metrics_by_area_*.csv
+!08-genetic_diversity/*_latbands_numbers.csv
