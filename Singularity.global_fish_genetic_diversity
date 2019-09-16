@@ -76,8 +76,8 @@ IncludeCmd: yes
 	tar xvf R-3.4.4.tar.gz
 	cd R-3.4.4
 	./configure --enable-R-static-lib --with-blas --with-lapack --enable-R-shlib=yes 
-	make
-	make install
+	yes | make
+	yes | make install
 
     ## R CRAN Packages
     cd $HOME
