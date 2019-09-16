@@ -31,7 +31,6 @@ IncludeCmd: yes
 	apt-get install -y libssl-dev libxml2-dev libpcre3-dev liblzma-dev libbz2-dev libcurl4-openssl-dev git
 	apt-get update
 
-
 	## python3
 	apt-get install python3
 
@@ -71,9 +70,6 @@ IncludeCmd: yes
 	apt-get update
 	yes | apt-get install libudunits2-dev libgdal-dev libgeos-dev libproj-dev libgdal-dev
 
-
-
-
 	## R	
 	cd $HOME
 	wget https://cran.r-project.org/src/base/R-3/R-3.4.4.tar.gz
@@ -95,7 +91,6 @@ IncludeCmd: yes
 
 
 	R --slave -e 'install.packages("https://cran.r-project.org/src/contrib/Archive/rgeos/rgeos_0.3-26.tar.gz", type="source")'
-
 
 
 %apprun run
