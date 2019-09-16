@@ -1,0 +1,106 @@
+
+Bootstrap: docker
+From: ubuntu:16.04
+IncludeCmd: yes
+
+%environment
+	R_VERSION=3.4.4
+	export R_VERSION
+	R_CONFIG_DIR=/etc/R/
+	export R_CONFIG_DIR
+	export LC_ALL=C
+	export PATH=$HOME/julia-1.1.0/:$PATH
+
+%labels	
+	MAINTAINER Pierre-Edouard_GUERIN
+    INSTITUTE CNRS
+    TEAM Biogeographie_Ecologie_Vertebres
+    BUILD 1.0
+    BUILD_DATE 2019 juin 19
+    SINGULARITY_VERSION 2.4.2-dist
+    MUSCLE 3.8.31
+    JULIA 1.1.0
+    PYTHON 3.5.2
+    R 3.4.4
+
+%post
+	apt-get update
+	apt-get install -y wget libblas3 libblas-dev liblapack-dev liblapack3 curl
+	apt-get install -y gcc fort77 aptitude
+	aptitude install -y g++ xorg-dev libreadline-dev  gfortran
+	apt-get install -y libssl-dev libxml2-dev libpcre3-dev liblzma-dev libbz2-dev libcurl4-openssl-dev git
+	apt-get update
+
+
+	## python3
+	apt-get install python3
+
+	## python3 modules
+	yes | apt-get install python3-numpy python3-six
+	yes | apt-get install python3-pip
+	yes | apt-get update
+	yes | pip3 install --upgrade argparse numpy ete3
+
+	## julia
+	yes | apt-get install  libgmp3-dev \
+    libmpfr-dev libblas-dev liblapack-dev cmake gcc-4.8 \
+    g++-4.8 gfortran libgfortran3 m4 libedit-dev
+	wget https://github.com/JuliaLang/julia/releases/download/v1.1.0/julia-1.1.0.tar.gz
+	tar xvf julia-1.1.0.tar.gz
+	cd julia-1.1.0
+	make
+	cp julia /usr/local/bin/
+	cd $HOME
+	export PATH=$HOME/julia-1.1.0/:$PATH
+
+
+	## julia modules
+	julia -e 'println("JULIA IS WORKING WELL");'
+	julia -e 'using Pkg; Pkg.add("DataFrames"); Pkg.add("DelimitedFiles"); Pkg.add("DataFramesMeta"); Pkg.add("StatsBase"); Pkg.add("Statistics"); Pkg.add("CSV");'
+
+
+	## MUSCLE
+	wget https://www.drive5.com/muscle/downloads3.8.31/muscle3.8.31_i86linux64.tar.gz
+	tar xvf muscle3.8.31_i86linux64.tar.gz
+	chmod +x muscle3.8.31_i86linux64
+	mv muscle3.8.31_i86linux64 /usr/local/bin/muscle3
+
+	yes | apt-get install software-properties-common build-essential libpcre3 libpcre3-dev libbz2-dev bzip2 fort77 libreadline-dev gobjc++ gcc-multilib xorg-dev liblzma-dev libblas-dev gfortran autotools-dev automake cmake curl libcurl3 libcurl3-dev grep sed dpkg fuse git zip openjdk-8-jre pkg-config ca-certificates libglib2.0-0 libxext6 libsm6 libxrender1 mercurial subversion zlib1g-dev libncurses5-dev libncursesw5-dev texlive texlive-fonts-extra default-jdk
+
+	yes | add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+	apt-get update
+	yes | apt-get install libudunits2-dev libgdal-dev libgeos-dev libproj-dev libgdal-dev
+
+
+
+
+	## R	
+	cd $HOME
+	wget https://cran.r-project.org/src/base/R-3/R-3.4.4.tar.gz
+	tar xvf R-3.4.4.tar.gz
+	cd R-3.4.4
+	./configure --enable-R-static-lib --with-blas --with-lapack --enable-R-shlib=yes 
+	make
+	make install
+
+    ## R CRAN Packages
+    cd $HOME
+    R --slave -e "install.packages( 'https://cran.r-project.org/src/contrib/Archive/mvtnorm/mvtnorm_1.0-8.tar.gz', type='source')"
+
+    R --slave -e "install.packages( 'https://cran.r-project.org/src/contrib/Archive/plotrix/plotrix_3.7-4.tar.gz', type='source')"
+
+	R --slave -e "install.packages( c('carData', 'abind', 'pbkrtest', 'quantreg', 'rio','car','devtools','spdep','sp','raster','rgdal','sf','emmeans','sjstats','sjPlot','gridExtra', 'parallel','maptools','png','plyr','shape','pgirmess','MASS','hier.part','countrycode','ggplot2','lme4','SpatialPack','rfishbase' ),repos='https://cloud.r-project.org' )"
+
+    R --slave -e "install.packages( 'https://cran.r-project.org/src/contrib/Archive/car/car_3.0-2.tar.gz', type='source')"
+
+
+	R --slave -e 'install.packages("https://cran.r-project.org/src/contrib/Archive/rgeos/rgeos_0.3-26.tar.gz", type="source")'
+
+
+
+%apprun run
+	exec /bin/bash "$@"
+
+%runscript
+	echo "ubuntu xenial with R 3.4.4, julia 1.1.0, python 3.5, muscle3 and all required dependencies to reproduce analysis in the paper 'Global determinants of freshwater and marine fish genetic diversity'"
+	
