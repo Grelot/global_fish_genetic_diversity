@@ -1,7 +1,9 @@
 
-Bootstrap: docker
-From: ubuntu:16.04
+BootStrap: debootstrap
+OSVersion: xenial
+MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 IncludeCmd: yes
+Include: bash vim less man-db apt-utils tzdata
 
 %environment
 	R_VERSION=3.4.4
@@ -15,20 +17,32 @@ IncludeCmd: yes
 	MAINTAINER Pierre-Edouard_GUERIN
     INSTITUTE CNRS
     TEAM Biogeographie_Ecologie_Vertebres
-    BUILD 1.0
-    BUILD_DATE 2019 juin 19
-    SINGULARITY_VERSION 2.4.2-dist
+    BUILD 1.1
+    BUILD_DATE 2019 september 18
+    SINGULARITY_VERSION 2.5.2
     MUSCLE 3.8.31
     JULIA 1.1.0
     PYTHON 3.5.2
     R 3.4.4
 
 %post
+
+    mv /etc/apt/sources.list /etc/apt/sources.list.bak
+
+    echo "deb http://us.archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse
+    deb-src http://us.archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse
+    deb http://us.archive.ubuntu.com/ubuntu/ xenial-security main restricted universe multiverse
+    deb http://us.archive.ubuntu.com/ubuntu/ xenial-updates main restricted universe multiverse
+    deb http://us.archive.ubuntu.com/ubuntu/ xenial-proposed main restricted universe multiverse
+    deb http://us.archive.ubuntu.com/ubuntu/ xenial-backports main restricted universe multiverse
+    deb-src http://us.archive.ubuntu.com/ubuntu/ xenial-security main restricted universe multiverse
+    deb-src http://us.archive.ubuntu.com/ubuntu/ xenial-updates main restricted universe multiverse
+    deb-src http://us.archive.ubuntu.com/ubuntu/ xenial-proposed main restricted universe multiverse
+    deb-src http://us.archive.ubuntu.com/ubuntu/ xenial-backports main restricted universe multiverse" >> /etc/apt/sources.list
+
+
 	apt-get update
-	apt-get install -y wget libblas3 libblas-dev liblapack-dev liblapack3 curl
-	apt-get install -y gcc fort77 aptitude
-	aptitude install -y g++ xorg-dev libreadline-dev  gfortran
-	apt-get install -y libssl-dev libxml2-dev libpcre3-dev liblzma-dev libbz2-dev libcurl4-openssl-dev git
+	yes | apt-get install software-properties-common build-essential autoconf autogen libtool wget gcc libssl-dev libblas3  git libpcre3 libpcre3-dev libbz2-dev bzip2 fort77 libreadline-dev gobjc++ gcc-multilib xorg-dev liblzma-dev libblas-dev gfortran autotools-dev automake cmake curl libcurl3 libcurl3-dev grep sed dpkg fuse git zip openjdk-8-jre pkg-config ca-certificates libglib2.0-0 libxext6 libsm6 libxrender1 mercurial subversion zlib1g-dev libncurses5-dev libncursesw5-dev texlive texlive-fonts-extra default-jdk libcurl4-openssl-dev
 	apt-get update
 
 	## python3
@@ -43,7 +57,7 @@ IncludeCmd: yes
 	## julia
 	yes | apt-get install  libgmp3-dev \
     libmpfr-dev libblas-dev liblapack-dev cmake gcc-4.8 \
-    g++-4.8 gfortran libgfortran3 m4 libedit-dev
+    g++-4.8 gfortran libgfortran3 m4 libedit-dev liblapack3 
 	wget https://github.com/JuliaLang/julia/releases/download/v1.1.0/julia-1.1.0.tar.gz
 	tar xvf julia-1.1.0.tar.gz
 	cd julia-1.1.0
@@ -64,13 +78,12 @@ IncludeCmd: yes
 	chmod +x muscle3.8.31_i86linux64
 	mv muscle3.8.31_i86linux64 /usr/local/bin/muscle3
 
-	yes | apt-get install software-properties-common build-essential libpcre3 libpcre3-dev libbz2-dev bzip2 fort77 libreadline-dev gobjc++ gcc-multilib xorg-dev liblzma-dev libblas-dev gfortran autotools-dev automake cmake curl libcurl3 libcurl3-dev grep sed dpkg fuse git zip openjdk-8-jre pkg-config ca-certificates libglib2.0-0 libxext6 libsm6 libxrender1 mercurial subversion zlib1g-dev libncurses5-dev libncursesw5-dev texlive texlive-fonts-extra default-jdk
 
 	yes | add-apt-repository ppa:ubuntugis/ubuntugis-unstable
 	apt-get update
 	yes | apt-get install libudunits2-dev libgdal-dev libgeos-dev libproj-dev libgdal-dev
 
-	## R	
+	## R
 	cd $HOME
 	wget https://cran.r-project.org/src/base/R-3/R-3.4.4.tar.gz
 	tar xvf R-3.4.4.tar.gz
