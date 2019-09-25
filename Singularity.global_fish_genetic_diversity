@@ -65,18 +65,15 @@ Include: bash vim less man-db apt-utils tzdata
 	cd $HOME
 	export PATH=$HOME/julia-1.1.0/:$PATH
 
-
 	## julia modules
 	julia -e 'println("JULIA IS WORKING WELL");'
 	julia -e 'using Pkg; Pkg.add("DataFrames"); Pkg.add("DelimitedFiles"); Pkg.add("DataFramesMeta"); Pkg.add("StatsBase"); Pkg.add("Statistics"); Pkg.add("CSV");'
-
 
 	## MUSCLE
 	wget https://www.drive5.com/muscle/downloads3.8.31/muscle3.8.31_i86linux64.tar.gz
 	tar xvf muscle3.8.31_i86linux64.tar.gz
 	chmod +x muscle3.8.31_i86linux64
 	mv muscle3.8.31_i86linux64 /usr/local/bin/muscle3
-
 
 	yes | add-apt-repository ppa:ubuntugis/ubuntugis-unstable
 	apt-get update
