@@ -61,7 +61,7 @@ Include: bash vim less man-db apt-utils tzdata
 
 	## julia modules
 	julia-1.1.0/bin/julia -e 'println("JULIA IS WORKING WELL");'
-	julia -e 'using Pkg; Pkg.add("DataFrames"); Pkg.add("DelimitedFiles"); Pkg.add("DataFramesMeta"); Pkg.add("StatsBase"); Pkg.add("Statistics"); Pkg.add("CSV");'
+	julia-1.1.0/bin/julia -e 'using Pkg; Pkg.add("DataFrames"); Pkg.add("DelimitedFiles"); Pkg.add("DataFramesMeta"); Pkg.add("StatsBase"); Pkg.add("Statistics"); Pkg.add("CSV");'
 
 	## MUSCLE
 	wget https://www.drive5.com/muscle/downloads3.8.31/muscle3.8.31_i86linux64.tar.gz
