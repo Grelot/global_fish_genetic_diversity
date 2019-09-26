@@ -25,6 +25,7 @@ Include: bash vim less man-db apt-utils tzdata
     R 3.4.4
 
 %post
+	chsh -s /bin/bash
 
     mv /etc/apt/sources.list /etc/apt/sources.list.bak
 
