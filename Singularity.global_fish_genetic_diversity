@@ -10,7 +10,8 @@ Include: bash vim less man-db apt-utils tzdata
 	R_CONFIG_DIR=/etc/R/
 	export R_CONFIG_DIR
 	export LC_ALL=C
-	
+	export PATH=$HOME/julia-1.1.0/bin/:$PATH
+
 %labels	
 	MAINTAINER Pierre-Edouard_GUERIN
     INSTITUTE CNRS
@@ -57,7 +58,6 @@ Include: bash vim less man-db apt-utils tzdata
 	wget https://github.com/Grelot/global_fish_genetic_diversity/raw/master/99-utils/julia-1.1.0-linux-x86_64.tar.gz
 	tar -xvf julia-1.1.0-linux-x86_64.tar.gz
 	chmod 775 -R julia-1.1.0
-	ln -s $HOME/julia-1.1.0/bin/julia /usr/local/bin/julia
 
 	## julia modules
 	julia -e 'println("JULIA IS WORKING WELL");'
