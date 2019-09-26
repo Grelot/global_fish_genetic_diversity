@@ -39,9 +39,8 @@ Include: bash vim less man-db apt-utils tzdata
     deb-src http://us.archive.ubuntu.com/ubuntu/ xenial-proposed main restricted universe multiverse
     deb-src http://us.archive.ubuntu.com/ubuntu/ xenial-backports main restricted universe multiverse" >> /etc/apt/sources.list
 
-
 	apt-get update
-	yes | apt-get install software-properties-common build-essential autoconf autogen libtool wget gcc libssl-dev libblas3  git libpcre3 libpcre3-dev libbz2-dev bzip2 fort77 libreadline-dev gobjc++ gcc-multilib xorg-dev liblzma-dev libblas-dev gfortran autotools-dev automake cmake curl libcurl3 libcurl3-dev grep sed dpkg fuse git zip openjdk-8-jre pkg-config ca-certificates libglib2.0-0 libxext6 libsm6 libxrender1 mercurial subversion zlib1g-dev libncurses5-dev libncursesw5-dev texlive texlive-fonts-extra default-jdk libcurl4-openssl-dev
+	yes | apt-get install software-properties-common build-essential autoconf autogen libtool wget gcc libssl-dev libblas3 git libpcre3 libpcre3-dev libbz2-dev bzip2 fort77 libreadline-dev gobjc++ gcc-multilib xorg-dev liblzma-dev libblas-dev gfortran autotools-dev automake cmake curl libcurl3 libcurl3-dev grep sed dpkg fuse git zip openjdk-8-jre pkg-config ca-certificates libglib2.0-0 libxext6 libsm6 libxrender1 mercurial subversion zlib1g-dev libncurses5-dev libncursesw5-dev texlive texlive-fonts-extra default-jdk libcurl4-openssl-dev
 	apt-get update
 
 	## python3
@@ -54,16 +53,11 @@ Include: bash vim less man-db apt-utils tzdata
 	yes | pip3 install --upgrade argparse numpy ete3
 
 	## julia
-	yes | apt-get install  libgmp3-dev \
-    libmpfr-dev libblas-dev liblapack-dev cmake gcc-4.8 \
-    g++-4.8 gfortran libgfortran3 m4 libedit-dev liblapack3 
-	wget https://github.com/JuliaLang/julia/releases/download/v1.1.0/julia-1.1.0.tar.gz
-	tar xvf julia-1.1.0.tar.gz
-	cd julia-1.1.0
-	make
-	cp julia /usr/local/bin/
-	cd $HOME
-	export PATH=$HOME/julia-1.1.0/:$PATH
+	yes | apt-get install libgmp3-dev libmpfr-dev libblas-dev liblapack-dev cmake gcc-4.8 g++-4.8 gfortran libgfortran3 m4 libedit-dev liblapack3
+
+	wget https://github.com/Grelot/global_fish_genetic_diversity/raw/master/99-utils/julia-1.1.0-linux-x86_64.tar.gz
+	tar -xvf julia-1.1.0-linux-x86_64.tar.gz
+	ln -s $HOME/julia-1.1.0/bin/julia /usr/local/bin/julia
 
 	## julia modules
 	julia -e 'println("JULIA IS WORKING WELL");'
