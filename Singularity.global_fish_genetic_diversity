@@ -25,9 +25,7 @@ Include: bash vim less man-db apt-utils tzdata
     R 3.4.4
 
 %post
-	chsh -s /bin/bash
-
-    mv /etc/apt/sources.list /etc/apt/sources.list.bak
+	mv /etc/apt/sources.list /etc/apt/sources.list.bak
 
     echo "deb http://us.archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse
     deb-src http://us.archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse
@@ -58,7 +56,7 @@ Include: bash vim less man-db apt-utils tzdata
 
 	wget https://github.com/Grelot/global_fish_genetic_diversity/raw/master/99-utils/julia-1.1.0-linux-x86_64.tar.gz
 	tar -xvf julia-1.1.0-linux-x86_64.tar.gz
-	chmod 775 -R julia-1.1.0
+	chmod 777 -R julia-1.1.0
 	export PATH=$HOME/julia-1.1.0/bin/:$PATH
 
 	## julia modules
