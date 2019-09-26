@@ -10,8 +10,7 @@ Include: bash vim less man-db apt-utils tzdata
 	R_CONFIG_DIR=/etc/R/
 	export R_CONFIG_DIR
 	export LC_ALL=C
-	export PATH=$HOME/julia-1.1.0/:$PATH
-
+	
 %labels	
 	MAINTAINER Pierre-Edouard_GUERIN
     INSTITUTE CNRS
