@@ -10,7 +10,7 @@ Include: bash vim less man-db apt-utils tzdata
 	R_CONFIG_DIR=/etc/R/
 	export R_CONFIG_DIR
 	export LC_ALL=C
-	export PATH=$HOME/julia-1.1.0/:$PATH
+	export PATH=/usr/local/bin/julia-1.1.0/bin/:$PATH
 
 %labels	
 	MAINTAINER Pierre-Edouard_GUERIN
@@ -57,11 +57,13 @@ Include: bash vim less man-db apt-utils tzdata
 	wget https://github.com/Grelot/global_fish_genetic_diversity/raw/master/99-utils/julia-1.1.0-linux-x86_64.tar.gz
 	tar -xvf julia-1.1.0-linux-x86_64.tar.gz
 	chmod +x julia-1.1.0/bin/julia
-	export PATH=$HOME/julia-1.1.0/:$PATH
+	mv julia-1.1.0 /usr/local/bin	
 
 	## julia modules
-	julia-1.1.0/bin/julia -e 'println("JULIA IS WORKING WELL");'
-	julia-1.1.0/bin/julia -e 'using Pkg; Pkg.add("DataFrames"); Pkg.add("DelimitedFiles"); Pkg.add("DataFramesMeta"); Pkg.add("StatsBase"); Pkg.add("Statistics"); Pkg.add("CSV");'
+	/usr/local/bin/julia-1.1.0/bin/julia -e 'println("JULIA IS WORKING WELL");'
+	/usr/local/bin/julia-1.1.0/bin/julia -e 'using Pkg; Pkg.add("DataFrames"); Pkg.add("DelimitedFiles"); Pkg.add("DataFramesMeta"); Pkg.add("StatsBase"); Pkg.add("Statistics"); Pkg.add("CSV");'
+
+
 
 	## MUSCLE
 	wget https://www.drive5.com/muscle/downloads3.8.31/muscle3.8.31_i86linux64.tar.gz
