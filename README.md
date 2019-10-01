@@ -13,9 +13,10 @@ Submited to Nature communications, 2019
 
 1. [Introduction](#1-introduction)
 2. [Installation](#2-installation)
-    1. [Prerequisites](#21-prerequisites) 
-    2. [Data Files](#22-data-files)
-    3. [Set up](#23-set-up)
+    1. [Prerequisites](#21-prerequisites)
+    2. [Singularity container](#22-singularity-container)
+    3. [Data Files](#23-data-files)
+    4. [Set up](#24-set-up)
 3. [Scripts Code Source](#3-scripts-code-source)  
 4. [Running the pipeline](#4-running-the-pipeline)
     1. [Filter raw data](#41-filter-raw-data)
@@ -93,7 +94,30 @@ For [Figures and statiscal analysis](#45-statistical-analysis), only R packages 
     - `python3-module` difflib
 - [MUSCLE Version 3.8.31](https://www.drive5.com/muscle/)
 
-## 2.2 Data files
+## 2.2 Singularity container
+
+Alternatively, you can download and use a singularity container with all prerequisites (R, Julia, Python, Muscle).
+
+### Install Singularity
+
+See https://www.sylabs.io/docs/ for instructions to install Singularity.
+
+### Download the container
+
+```
+singularity pull --name global_fish_genetic_diversity.simg shub://Grelot/global_fish_genetic_diversity:global_fish_genetic_diversity
+```
+
+### Use the container
+
+This command will spawn a shell environment with all prerequisites.
+```
+singularity shell global_fish_genetic_diversity.simg
+```
+
+
+
+## 2.3 Data files
 The included data files are :
 
 * [seqbold_data.tsv](02-raw_data/seqbold_data.tsv) : georeferenced barcode sequences of the supergroup "actinopterygii" downloaded from [BOLD](http://www.boldsystems.org/index.php/Public_SearchTerms?taxon=&searchMenu=records&query=actinopterygii) on 17th september 2018
@@ -115,7 +139,7 @@ The included data files are :
 * [distanceCote](01-infos/distanceCote.csv) : distance from shore for each cell calculated from [gmed](http://gmed.auckland.ac.nz/)
 * _ornament_ [fishes images](01-infos/images) :free silhouette images of fishes from [phylopic](http://phylopic.org/)
 
-## 2.3 Set Up
+## 2.4 Set Up
 Clone the project and switch to the main folder, it's your working directory
 
 ```
