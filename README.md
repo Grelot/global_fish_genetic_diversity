@@ -10,7 +10,7 @@ Codes for the paper : "Global determinants of freshwater and marine fish genetic
 Montpellier, 2017-2019  
 
 
-Published in Nature communications, 2020  
+Published in Nature Communications, 2020  
 
 Codes are also available on our gitlab: https://gitlab.mbb.univ-montp2.fr/reservebenefit/worldmap_fish_genetic_diversity  
 
