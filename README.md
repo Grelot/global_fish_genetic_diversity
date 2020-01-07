@@ -6,8 +6,9 @@ Codes for the paper : "Global determinants of freshwater and marine fish genetic
 
 #### Stephanie Manel, Pierre-Edouard Guerin, David Mouillot, Simon Blanchet, Laure Velez, Camille Albouy, Loic Pellissier
 Montpellier, 2017-2019
+Published in Nature communications, 2020
 
-Submited to Nature communications, 2019
+This scripts is also available on our gitlab: https://gitlab.mbb.univ-montp2.fr/reservebenefit/worldmap_fish_genetic_diversity
 
 # Table of contents
 
