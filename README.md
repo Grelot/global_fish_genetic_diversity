@@ -5,10 +5,14 @@ Codes for the paper : "Global determinants of freshwater and marine fish genetic
 [![https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg](https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg)](https://singularity-hub.org/collections/3545)
 
 #### Stephanie Manel, Pierre-Edouard Guerin, David Mouillot, Simon Blanchet, Laure Velez, Camille Albouy, Loic Pellissier
-Montpellier, 2017-2019
-Published in Nature communications, 2020
 
-This scripts is also available on our gitlab: https://gitlab.mbb.univ-montp2.fr/reservebenefit/worldmap_fish_genetic_diversity
+
+Montpellier, 2017-2019  
+
+
+Published in Nature communications, 2020  
+
+This scripts is also available on our gitlab: https://gitlab.mbb.univ-montp2.fr/reservebenefit/worldmap_fish_genetic_diversity  
 
 # Table of contents
 
