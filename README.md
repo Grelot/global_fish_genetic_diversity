@@ -12,7 +12,7 @@ Montpellier, 2017-2019
 
 Published in Nature communications, 2020  
 
-This scripts is also available on our gitlab: https://gitlab.mbb.univ-montp2.fr/reservebenefit/worldmap_fish_genetic_diversity  
+Codes are also available on our gitlab: https://gitlab.mbb.univ-montp2.fr/reservebenefit/worldmap_fish_genetic_diversity  
 
 # Table of contents
 
