@@ -13,13 +13,12 @@ Published in Nature Communications, 2020
 
 ---------------------------------------------------------------------
 
-* <img src="https://github.com/Grelot/global_fish_genetic_diversity/blob/master/99-utils/logo_shiny.png" href="https://shiny.cefe.cnrs.fr/wfgd/" width="50" height="50"> fffrefrfrfr
+* <img src="https://github.com/Grelot/global_fish_genetic_diversity/blob/master/99-utils/logo_shiny.png" href="https://shiny.cefe.cnrs.fr/wfgd/" width="32" height="32"> A web application is available to display Figure 1 with more details: https://shiny.cefe.cnrs.fr/wfgd/
 
-* <img src="https://github.com/Grelot/global_fish_genetic_diversity/blob/master/99-utils/logo_gitlab.png" href="https://gitlab.mbb.univ-montp2.fr/reservebenefit/worldmap_fish_genetic_diversity" width="50" height="50"> frfrfr
 
-* A web application is available to display Figure 1 with more details: https://shiny.cefe.cnrs.fr/wfgd/
+* <img src="https://github.com/Grelot/global_fish_genetic_diversity/blob/master/99-utils/gitlab_logo.png" href="https://gitlab.mbb.univ-montp2.fr/reservebenefit/worldmap_fish_genetic_diversity" width="32" height="32"> Codes are also available on our gitlab: https://gitlab.mbb.univ-montp2.fr/reservebenefit/worldmap_fish_genetic_diversity 
 
-* Codes are also available on our gitlab: https://gitlab.mbb.univ-montp2.fr/reservebenefit/worldmap_fish_genetic_diversity 
+
 
 ---------------------------------------------------------------------
 
