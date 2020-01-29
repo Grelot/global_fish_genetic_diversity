@@ -13,7 +13,7 @@ Published in Nature Communications, 2020
 
 ---------------------------------------------------------------------
 
-[![https://github.com/Grelot/global_fish_genetic_diversity/blob/master/99-utils/logo_shiny.png](https://github.com/Grelot/global_fish_genetic_diversity/blob/master/99-utils/logo_shiny.png = 50x50)](https://shiny.cefe.cnrs.fr/wfgd/)
+[![https://github.com/Grelot/global_fish_genetic_diversity/blob/master/99-utils/logo_shiny.png](https://github.com/Grelot/global_fish_genetic_diversity/blob/master/99-utils/logo_shiny.png)](https://shiny.cefe.cnrs.fr/wfgd/)
 
 * A web application is available to display Figure 1 with more details: https://shiny.cefe.cnrs.fr/wfgd/
 
