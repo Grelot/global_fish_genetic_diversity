@@ -10,6 +10,7 @@ Codes for the paper : "Global determinants of freshwater and marine fish genetic
 Montpellier, 2017-2019  
 
 Published in Nature Communications, 2020 
+full-text acces: https://rdcu.be/b1sXy
 
 ---------------------------------------------------------------------
 
